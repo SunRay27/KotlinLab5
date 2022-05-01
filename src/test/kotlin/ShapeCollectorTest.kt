@@ -331,6 +331,7 @@ internal class ShapeCollectorTest {
         }
         assertEquals(0, collector.getAllShapesOfType(ShapeCollector::class).count())
     }
+
     @Test
     fun getSorted() {
         val collector = ShapeCollector<ColoredShape2D>()
@@ -351,8 +352,7 @@ internal class ShapeCollectorTest {
         collector.add(tri3)
 
         val areaSorted = collector.getSorted(compareBy { it.calcArea() })
-        for (i in 1 until areaSorted.count())
-        {
+        for (i in 1 until areaSorted.count()) {
             val sorted1 = areaSorted[i - 1].calcArea()
             val sorted2 = areaSorted[i].calcArea()
             assertTrue(sorted1 <= sorted2)

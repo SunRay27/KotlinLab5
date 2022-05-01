@@ -4,9 +4,10 @@ class Disk(private val radius: Double, override val fillColor: Color, override v
     BaseShape(borderColor, fillColor) {
 
     init {
-        if(radius<=0)
+        if (radius <= 0)
             throw IllegalArgumentException("disc radius can't be <= 0")
     }
+
     override fun calcArea(): Double {
         return Math.PI * radius * radius
     }

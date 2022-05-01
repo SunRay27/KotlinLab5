@@ -4,7 +4,7 @@ open class Rect(private val size: Vector2, override val fillColor: Color, overri
     BaseShape(borderColor, fillColor) {
 
     init {
-        if(size.x <=0 || size.y <= 0)
+        if (size.x <= 0 || size.y <= 0)
             throw IllegalArgumentException("rect size can't be <= 0")
     }
 
