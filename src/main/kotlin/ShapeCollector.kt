@@ -44,16 +44,15 @@ class ShapeCollector<T : ColoredShape2D> {
         return shapes.groupBy { it.borderColor }
     }
 
-    fun <T : Any> getAllShapesOfType(shapeType: KClass<T>): List<T> {
-        @Suppress("UNCHECKED_CAST")
-        return shapes.filter { it::class == shapeType } as List<T>
+    fun getAllShapesOfType(shapeType: KClass<out T>): List<T> {
+        return shapes.filter { it::class == shapeType }
     }
 
     fun addAll(collection: Collection<T>) {
         shapes.addAll(collection)
     }
 
-    fun getSorted(comparator: Comparator<T>): List<T> {
+    fun getSorted(comparator: Comparator<in T>): List<T> {
         val copy = shapes.toMutableList()
         copy.sortWith(comparator)
         return copy

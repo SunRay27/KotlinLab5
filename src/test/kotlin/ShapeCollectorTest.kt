@@ -274,10 +274,6 @@ internal class ShapeCollectorTest {
         }
         assertEquals(3, collector.getAllShapesOfType(Triangle::class).count())
 
-        collector.getAllShapesOfType(ShapeCollector::class).forEach {
-            assertFalse(it::class == ShapeCollector::class)
-        }
-        assertEquals(0, collector.getAllShapesOfType(ShapeCollector::class).count())
     }
 
     @Test
@@ -325,11 +321,6 @@ internal class ShapeCollectorTest {
             assertTrue(it::class == Triangle::class)
         }
         assertEquals(3, collector.getAllShapesOfType(Triangle::class).count())
-
-        collector.getAllShapesOfType(ShapeCollector::class).forEach {
-            assertFalse(it::class == ShapeCollector::class)
-        }
-        assertEquals(0, collector.getAllShapesOfType(ShapeCollector::class).count())
     }
 
     @Test
